@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+    <script src="class (1).js"></script>
+    <script src="script (1).js"></script>
+    <style>
+        td
+        {
+            border: 1px solid black;
+        }
+        .green
+        {
+            background-color: green;
+            width: 50px;
+        }
+        .grey
+        {
+            background-color: #acacac;
+            width: 50px;
+        }
+        .yellow
+        {
+            background-color: #F9F22B;
+            width: 50px;
+        }
+        .red
+        {
+            background-color: #C20808;
+            width: 50px;
+        }
+        .lightgreen
+        {
+            background-color: #07FF00;
+            width: 50px;
+        }
+        .black
+        {
+            background-color: #000000;
+            width: 50px;
+        }
+        .blue
+        {
+            background-color: #0068FF;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td>Color</td>
+            <td>Basic Info</td>
+            <td>Energy</td>
+            <td>Multiply info</td>
+            <td>Energy Obtainment</td>
+            <td>Special Characteristic</td>
+        </tr>
+        <tr>
+            <td class = grey></td>
+            <td>
+                <p>Grey</p>
+            </td>
+            <td>
+                <p>Just an empty space</p>
+            </td>
+            <td>
+                <p>-</p>
+            </td>
+            <td>No multiply</td>
+            <td>
+                <p>No energy</p>
+            </td>
+            <td>
+                <p>No special characteristics</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="green"></td>
+            <td>
+                <p>Green</p>
+            </td>
+            <td>
+                <p>It's just a Grass.</p>
+            </td>
+            <td>
+                <p>-</p>
+            </td>
+            <td>
+                <p>Can multiply once in 2 frames</p>
+            </td>
+            <td>
+                <p>No energy</p>
+            </td>
+            <td>
+                <p>No special characteristics</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class = yellow></td>
+            <td>
+                <p>Yellow</p>
+            </td>
+            <td>
+                <p>Greasseater</p>
+            </td>
+            <td>
+                <p>12</p>
+            </td>
+            <td>
+                <p>Multiplies after energy reaches 15+</p>
+            </td>
+            <td>
+                <p>Eating Grass</p>
+            </td>
+            <td>
+                <p>Can walk eat bonus</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class = "red"></td>
+            <td>
+                <p>Red</p>
+            </td>
+            <td>
+                <p>Wild Animal</p>
+            </td>
+            <td>
+                <p>12</p>
+            </td>
+            <td>
+                <p>Multiplies after energy reaches 15+</p>
+            </td>
+            <td>
+                <p>Eating Greasseater</p>
+            </td>
+            <td>
+                <p>No special characteristics</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class = "lightgreen"></td>
+            <td>
+                <p>Lightgreen</p>
+            </td>
+            <td>
+                <p>Bonus for Greasseater</p>
+            </td>
+            <td>
+                <p>-</p>
+            </td>
+            <td>
+                <p>No multiply</p>
+            </td>
+            <td>
+                <p>No energy</p>
+            </td>
+            <td>
+                <p>Grasseaters can eat it</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td class = "black"></td>
+            <td>
+                <p>Black</p>
+            </td>
+            <td>
+                <p>Lightning</p>
+            </td>
+            <td>
+                <p>-</p>
+            </td>
+            <td>
+                <p>No multiply</p>
+            </td>
+            <td>
+                <p>No energy</p>
+            </td>
+            <td>
+                <p>Activate when game ended</p>
+            </td>
+        </tr>
+
+        <tr>
+                <td class = "blue"></td>
+                <td>
+                    <p>Blue</p>
+                </td>
+                <td>
+                    <p>Activated Lightning</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>No multiply</p>
+                </td>
+                <td>
+                    <p>No energy</p>
+                </td>
+                <td>
+                    <p>Reload game</p>
+                </td>
+            </tr>
+    </table>
+	<iframe src="https://cross-origin.com/myvideo.html" allow="autoplay" width="1px" height="1px">
+	
+</body>
+</html>
