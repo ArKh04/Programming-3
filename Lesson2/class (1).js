@@ -1,5 +1,5 @@
+class LivingCreature {
 
-class Grass {
     constructor(_x, _y) {
         this.x = _x;
         this.y = _y;
@@ -13,6 +13,11 @@ class Grass {
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1]
         ];
+    }
+}
+class Grass extends LivingCreature{
+    constructor(_x, _y) {
+        super(_x, _y)
 
         this.multiply = 0;
     }
@@ -42,20 +47,9 @@ class Grass {
         }
     }
 }
-class GrassEater{
+class GrassEater extends LivingCreature{
     constructor(_x, _y) {
-        this.x = _x;
-        this.y = _y;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+        super(_x, _y)
         this.dWithBonus = [
             [this.x,this.y+2],
             [this.x,this.y+1],
@@ -305,20 +299,9 @@ class GrassEater{
         }
     }
 }
-class Lion {
+class Lion extends LivingCreature{
     constructor(_x, _y) {
-        this.x = _x;
-        this.y = _y;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+        super(_x, _y)
         this.energy = 12;
     }
     chooseCell(num) {
@@ -474,26 +457,4 @@ class Reloader{
             }
 		}
 	}
-}
-function setup() {
-    frameRate(4);
-    createCanvas(matrix[0].length * side, matrix.length * side);
-    background('#acacac');
-    for (var i = 0; i < matrix.length; i++) {
-        for (var j = 0; j < matrix.length; j++) {
-            if (matrix[i][j] == 1) {
-                GrassArr.push(new Grass(j, i));
-            }
-            else if(matrix[i][j] == 2)
-            {
-                GrassEaterArr.push(new GrassEater(j,i));
-            }
-            else if (matrix[i][j] == 3) {
-                LionArr.push(new Lion(j, i));
-            }
-            else if (matrix[i][j] == 5) {
-                rel = new Reloader(j, i);
-            }
-        }
-    }
 }

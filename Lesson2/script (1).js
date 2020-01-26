@@ -86,6 +86,27 @@ function matrixGen(width, heigth, grass, grasseater, lion) {
 matrixGen(50, 50, 150, 15, 5);//tvery poxeluc Reloaderi meji reload functiayi mejinnel poxel
 console.log(matrix);
 
+function setup() {
+    frameRate(4);
+    createCanvas(matrix[0].length * side, matrix.length * side);
+    background('#acacac');
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < matrix.length; j++) {
+            if (matrix[i][j] == 1) {
+                GrassArr.push(new Grass(j, i));
+            }
+            else if (matrix[i][j] == 2) {
+                GrassEaterArr.push(new GrassEater(j, i));
+            }
+            else if (matrix[i][j] == 3) {
+                LionArr.push(new Lion(j, i));
+            }
+            else if (matrix[i][j] == 5) {
+                rel = new Reloader(j, i);
+            }
+        }
+    }
+}
 function draw() {
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix.length; x++) {
