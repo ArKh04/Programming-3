@@ -1,24 +1,17 @@
-function main() {
-    var socket = io();
-    var chatDiv = document.getElementById('chat');
-    var input = document.getElementById('message');
-    var button = document.getElementById('submit');
- 
-    function handleSubmit() {
-        var val = input.value;
-        if (val != "") {
-            socket.emit("send message", val);
-        }
-    }
-    button.onclick = handleSubmit;
-    function handleMessage(msg) {
-        var p = document.createElement('p');
-        p.innerText = msg;
-        chatDiv.appendChild(p);
-        input.value = "";
+var socket = io();
+
+function setup()
+{
+  createCanvas(1000, 1000);
+  background('#acacac');
 }
-
-socket.on('display message', handleMessage);
-} // main closing bracket
-
-window.onload = main;   
+function draw()
+{
+    fill(0);
+    socket.emit("send message", [mouseX,mouseY]);
+    function drPx(msg)
+    {
+        ellipse(msg[0],msg[1],15,15);
+    }   
+    socket.on('display message', drPx);
+}

@@ -2,23 +2,21 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var messages = [];
+var dots = [];
 
 app.use(express.static("."));
 
 app.get('/', function (req, res) {
    res.redirect('index.html');
 });
-server.listen(4000);
-
 io.on('connection', function (socket) {
-    for(var i in messages) {
-      io.sockets.emit("display message", messages[i]);
+    for(var i in dots) {
+      io.sockets.emit("display message", dots[i]);
+      console.log(dots);
     }
     socket.on("send message", function (data) {
-        messages.push(data);
+        dots.push(data);
         io.sockets.emit("display message", data);
     });
- });
- 
- 
+});
+server.listen(3000);
