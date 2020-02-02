@@ -47,12 +47,13 @@ module.exports = class Lion extends LiveForm {
     }
     mul() {
         let newCell = random(this.chooseCell(0));
-        if (newCell && this.energy >= 15) {
+        if ((newCell && this.energy >= 15 && weather == 0) || (newCell && this.energy >= 16  && weather == 1) || (newCell && this.energy >= 17 && (weather == 2 || weather == 3))) {
             let newX = newCell[0];
             let newY = newCell[1];
             matrix[newY][newX] = 3;
             LionArr.push(new Lion(newX, newY));
             this.energy -= 4;
+            lionHashiv++;
         }
         else {
             this.eat();

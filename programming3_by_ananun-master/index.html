@@ -22,11 +22,15 @@
         body {
             font-family: 'Noto Sans', sans-serif !important;
         }
+        table td{
+            border-bottom: 1px solid #dee2e6;
+        }
     </style>
     </style>
 </head>
 
 <body>
+    <h1 id = "weather"></h1>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -60,19 +64,17 @@
                 <th scope="row">3</th>
                 <td scope="row" style="background-color:red;"></td>
                 <td>Կարմիրը գիշատիչն է, որը բազմանում է,երբ նրա էներգիան հասնում է 15-ի, և մահանում է 0 էներգիաի դեպքում(սկզբնական էներգիան հավասար է 12,ամեն խոտակեր ուտելուց նրա էներգիան ավելանում է 5-ով):</td>
-                <td id="grassEaterCount"></td>
+                <td id="lionCount"></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td scope="row" style="background-color:lightgreen;"></td>
-                <td>Բաց Կանաչը բոնուս է խոտակերի համար,սա ուտելուց խոտակերը ավելացնում է իր առավելագույն քայլելու հեռավորությունը:</td>
-                <td id="grassEaterCount"></td>
+                <td colspan = "2">Բաց Կանաչը բոնուս է խոտակերի համար,սա ուտելուց խոտակերը ավելացնում է իր առավելագույն քայլելու հեռավորությունը:</td>
             </tr>
             <tr>
                 <th scope="row">5</th>
                 <td scope="row" style="background-color:black;"></td>
-                <td>Սև գույնը օբյեկտ է, որը թարմացնում է խաղը նրա ավարտելու ժամանակ,խաղի ավարոի ժամանակ նա փոխում է իր գույնը կապույտի:</td>
-                <td id="grassEaterCount"></td>
+                <td colspan = "2">Սև գույնը օբյեկտ է, որը թարմացնում է խաղը նրա ավարտելու ժամանակ,խաղի ավարոի ժամանակ նա փոխում է իր գույնը կապույտի:</td>
             </tr>
         </tbody>
     </table>

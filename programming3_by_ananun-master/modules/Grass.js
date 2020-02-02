@@ -25,12 +25,13 @@ module.exports = class Grass extends LiveForm {
         let newCell = random(this.chooseCell());
         if(newCell)
             this.multiply++;
-        if (newCell && this.multiply >= 2 && matrix[this.y][this.x] == 1) {
+        if ((newCell && this.multiply >= 2 && matrix[this.y][this.x] == 1 && weather == 0) || (newCell && this.multiply >= 3 && matrix[this.y][this.x] == 1 && weather == 1) || (newCell && this.multiply >= 4 && matrix[this.y][this.x] == 1 && (weather == 2 || weather == 3))) {
             let newX = newCell[0];
             let newY = newCell[1];
             matrix[newY][newX] = 1;
             GrassArr.push(new Grass(newX, newY));
             this.multiply = 0;
+            grassHashiv++;
         }
     }
 }

@@ -14,6 +14,9 @@ GrassEaterArr = [];
 LionArr = [];
 matrix = [];
 grassHashiv = 0;
+grassEaterHashiv = 0;
+lionHashiv = 0;
+weather = 0;
 //! Setting global arrays  -- END
 
 
@@ -80,7 +83,7 @@ function matrixGen(width, heigth, grass, grasseater, lion) {
         matrix[y][x] = 2;
     }
 }
-matrixGen(50, 50, 150, 15, 5)
+matrixGen(50, 50, 150, 15, 5);
 //! Creating MATRIX -- END
 
 
@@ -104,12 +107,15 @@ function creatingObjects() {
         for (var j = 0; j < matrix[0].length; j++) {
             if (matrix[i][j] == 1) {
                 GrassArr.push(new Grass(j, i));
+                grassHashiv++;
             }
             else if (matrix[i][j] == 2) {
                 GrassEaterArr.push(new GrassEater(j, i));
+                grassEaterHashiv++;
             }
             else if (matrix[i][j] == 3) {
                 LionArr.push(new Lion(j, i));
+                lionHashiv++;
             }
             else if (matrix[i][j] == 5) {
                 rel = new Reloader(j, i);
@@ -119,6 +125,11 @@ function creatingObjects() {
 }
 creatingObjects();
 
+function ChangeWeather(m)
+{
+    weather++;
+    weather %= 4;
+}
 function game() {
     rel.isreload();
     for (let i = 0; i < GrassArr.length; i++) {
@@ -136,13 +147,21 @@ function game() {
     let sendData = {
         matrix: matrix,
         grassCounter: grassHashiv,
-        rel: rel
+        grassEaterCounter: grassEaterHashiv,
+        lionCounter: lionHashiv,
+        rel: rel,
+        weather: weather
     }
 
     //! Send data over the socket to clients who listens "data"
     io.sockets.emit("data", sendData);
 }
+io.on('connection', function (socket) {
+    socket.on("changeW", function (data) {
+        ChangeWeather();
+    });
+});
 
 
-
-setInterval(game, 1000)
+setInterval(game, 500)
+setInterval(ChangeWeather, 60000)
