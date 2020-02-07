@@ -1,3 +1,5 @@
+//var Eraser = require("Er");
+
 function matrixGen(width, heigth, grass, grasseater, lion) {
     for (let i = 0; i < heigth; i++) {
         matrix[i] = [];
@@ -61,6 +63,7 @@ function matrixGen(width, heigth, grass, grasseater, lion) {
 var Grass = require("./Grass.js");
 var GrassEater = require("./GrassEater.js");
 var Lion = require("./Lion.js");
+var Eraser = require("./Eraser.js")
 var random = require("./random");
 module.exports = class Reloader{
 	constructor(_x,_y)
@@ -121,7 +124,8 @@ module.exports = class Reloader{
 		            }
 		            else if (matrix[i][j] == 5) {
 		                rel = new Reloader(j, i);
-		            }
+					}
+					er = new Eraser(0,0);
         		}
             }
 		}

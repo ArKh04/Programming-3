@@ -5,7 +5,7 @@ function setup() {
 
     var socket = io();
 
-    var side = 50;
+    var side = 20;
 
     var matrix = [];
     var rel;
@@ -22,7 +22,12 @@ function setup() {
     {
         socket.emit("changeW", 0)
     }
+    function MoveEraser(evn)
+    {
+        socket.emit("MoveEraser", evn.which);
+    }
     window.addEventListener('click', ChangeW);
+    window.addEventListener('keydown', MoveEraser)
     function drawCreatures(data) {
         //! after getting data pass it to matrix variable
         rel = data.rel;
@@ -54,7 +59,11 @@ function setup() {
         //! Drawing and coloring RECTs
         for (let y = 0; y < matrix.length; y++) {
             for (let x = 0; x < matrix.length; x++) {
-                if (matrix[y][x] == 1) {
+                if(data.er.x == x && data.er.y == y)
+                {
+                    fill("#33FFF5")
+                }
+                else if (matrix[y][x] == 1) {
                     if(data.weather == 0)
                         fill("#289A28");
                     else if(data.weather == 1)

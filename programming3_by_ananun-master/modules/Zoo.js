@@ -1,4 +1,4 @@
-var random = require("./random");
+/*var random = require("./random");
 
 
 module.exports = class Zoo{
@@ -37,4 +37,4 @@ module.exports = class Zoo{
     {
         var cell = random(this.dWithBonus);
     }
-}
+}*/

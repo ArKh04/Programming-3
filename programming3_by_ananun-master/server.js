@@ -4,6 +4,7 @@ var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
 var Lion = require("./modules/Lion.js");
 var Reloader = require("./modules/Reloader.js");
+var Eraser = require("./modules/Eraser.js");
 let random = require('./modules/random');
 //! Requiring modules  --  END
 
@@ -122,6 +123,7 @@ function creatingObjects() {
             }
         }
     }
+    er = new Eraser(0,0);
 }
 creatingObjects();
 
@@ -132,6 +134,7 @@ function ChangeWeather(m)
 }
 function game() {
     rel.isreload();
+
     for (let i = 0; i < GrassArr.length; i++) {
         GrassArr[i].mul();
     }
@@ -150,7 +153,8 @@ function game() {
         grassEaterCounter: grassEaterHashiv,
         lionCounter: lionHashiv,
         rel: rel,
-        weather: weather
+        weather: weather,
+        er: er
     }
 
     //! Send data over the socket to clients who listens "data"
@@ -160,8 +164,31 @@ io.on('connection', function (socket) {
     socket.on("changeW", function (data) {
         ChangeWeather();
     });
+    socket.on("MoveEraser", function (evn) {
+        console.log(evn);
+        if(evn == 68)
+        {
+            er.CC();
+            er.moveRight();
+        }
+        if(evn == 65)
+        {
+            er.CC();
+            er.moveLeft();
+        }
+        if(evn == 87)
+        {
+            er.CC();
+            er.moveUp();
+        }
+        if(evn == 83)
+        {
+            er.CC();
+            er.moveDown();
+        }
+    });
 });
 
 
-setInterval(game, 500)
+setInterval(game, 1000)
 setInterval(ChangeWeather, 60000)
